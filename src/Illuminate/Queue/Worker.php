@@ -6,7 +6,6 @@ use Illuminate\Contracts\Cache\Repository as CacheContract;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Queue\Factory as QueueManager;
-use Illuminate\Contracts\Queue\Job;
 use Illuminate\Database\DetectsLostConnections;
 use Illuminate\Queue\Events\JobExceptionOccurred;
 use Illuminate\Queue\Events\JobProcessed;
@@ -540,7 +539,7 @@ class Worker
      * @param  \Throwable  $e
      * @return void
      */
-    protected function failJob(Job $job, Throwable $e)
+    protected function failJob($job, Throwable $e)
     {
         $job->fail($e);
     }
